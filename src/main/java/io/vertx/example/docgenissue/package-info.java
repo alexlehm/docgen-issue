@@ -15,7 +15,14 @@
  */
 /**
  * = Docgen issue
- *
+ * issue present:
+ * [source,java]
+ * ----
+ * JsonObject json = new JsonObject();
+ * json.put("key", "\u0000\u0001\u0080\u009f\u00a0\u00ff");
+ * json.put("key", "\u00c3\u00bc");
+ * ----
+ * issue fixed:
  * [source,$lang]
  * ----
  * {@link examples.Examples#example1}
@@ -23,6 +30,6 @@
  */
 @Document(fileName = "index.adoc")
 @GenModule(name = "docgen-issue")
-package cx.lehmann.vertx.docgenissue;
+package io.vertx.example.docgenissue;
 import io.vertx.codegen.annotations.GenModule;
 import io.vertx.docgen.Document;
